@@ -4,55 +4,39 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"time"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
+	"gorm.io/gorm/logger"
 )
 
 var DB *gorm.DB
 
 func ConnectDB() {
-	user := os.Getenv("PG_USER")
-	host := os.Getenv("PG_HOST")
-	port := os.Getenv("PG_PORT")
-	password := os.Getenv("PG_PASSWORD")
-	dbname := os.Getenv("PG_DATABASE")
+    user := os.Getenv("PG_USER")
+    host := os.Getenv("PG_HOST")
+    port := os.Getenv("PG_PORT")
+    password := os.Getenv("PG_PASSWORD")
+    dbname := os.Getenv("PG_DATABASE")
 
-	// Get SSL mode from environment variable, default to 'disable' locally
-	sslMode := os.Getenv("PG_SSLMODE")
-	if sslMode == "" {
-		sslMode = "disable" // Local dev default
-	}
+    dsn := fmt.Sprintf(
+        "host=%s port=%s user=%s password=%s dbname=%s sslmode=require connect_timeout=10",
+        host, port, user, password, dbname,
+    )
 
-	// Build DSN dynamically using sslMode
-	dsn := fmt.Sprintf(
-  "host=%s port=%s user=%s password=%s dbname=%s sslmode=require connect_timeout=10",
-  host, port, user, password, dbname,
-)
+    log.Printf("Connecting to database at %s with SSL mode: require", host)
 
+    db, err := gorm.Open(postgres.New(postgres.Config{
+        DSN:                  dsn,
+        PreferSimpleProtocol: true,
+    }), &gorm.Config{
+        Logger: logger.Default.LogMode(logger.Info),
+    })
 
-	// Optional: Supabase sometimes needs this tweak
-	if sslMode == "require" {
-		dsn += "&prefer_simple_protocol=true"
-	}
+    if err != nil {
+        log.Fatalf("Failed to connect to database: %v", err)
+    }
 
-	log.Printf("Connecting to database at %s with SSL mode: %s", host, sslMode)
-
-	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
-	if err != nil {
-		log.Fatal("Failed to connect to database:", err)
-	}
-
-	sqlDB, err := db.DB()
-	if err != nil {
-		log.Fatal("Failed to get database instance:", err)
-	}
-
-	sqlDB.SetMaxIdleConns(10)
-	sqlDB.SetMaxOpenConns(100)
-	sqlDB.SetConnMaxLifetime(time.Hour)
-
-	DB = db
-	log.Println("✅ Successfully connected to database")
+    DB = db
+    log.Println("Successfully connected to database")
 }
