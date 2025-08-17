@@ -25,16 +25,14 @@ func ConnectDB() {
     password := os.Getenv("PG_PASSWORD")
     dbname := os.Getenv("PG_DATABASE")
 	sslmode := os.Getenv("PG_SSLMODE")
-	if sslmode == "" {
-		sslmode = "disable" // Default to disable if not set
-	}
+
 
     dsn := fmt.Sprintf(
         "host=%s port=%s user=%s password=%s dbname=%s sslmode=%s connect_timeout=10",
         host, port, user, password, dbname, sslmode,
     )
 
-    log.Printf("Connecting to database at %s:%s with SSL mode=require", host, port)
+    log.Printf("Connecting to database at %s:%s with SSL mode=%s", host, port, sslmode)
 
     // Create pgx Config from DSN
     config, err := pgx.ParseConfig(dsn)
