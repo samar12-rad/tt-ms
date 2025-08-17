@@ -1,0 +1,535 @@
+{
+  "batches": [
+    {
+      "id": "it-2k22",
+      "name": "IT-2K22",
+      "year": "2022",
+      "department": "Information Technology"
+    },
+    {
+      "id": "it-2k23",
+      "name": "IT-2K23",
+      "year": "2023",
+      "department": "Information Technology"
+    },
+    {
+      "id": "cs-2k22",
+      "name": "CS-2K22",
+      "year": "2022",
+      "department": "Computer Science"
+    },
+    {
+      "id": "cs-2k23",
+      "name": "CS-2K23",
+      "year": "2023",
+      "department": "Computer Science"
+    },
+    {
+      "id": "mca-2k22",
+      "name": "MCA-2K22",
+      "year": "2022",
+      "department": "Master of Computer Applications"
+    },
+    {
+      "id": "mca-2k23",
+      "name": "MCA-2K23",
+      "year": "2023",
+      "department": "Master of Computer Applications"
+    }
+  ],
+  "semesters": [
+    {
+      "id": "1",
+      "name": "I",
+      "number": 1
+    },
+    {
+      "id": "2",
+      "name": "II",
+      "number": 2
+    },
+    {
+      "id": "3",
+      "name": "III",
+      "number": 3
+    },
+    {
+      "id": "4",
+      "name": "IV",
+      "number": 4
+    },
+    {
+      "id": "5",
+      "name": "V",
+      "number": 5
+    },
+    {
+      "id": "6",
+      "name": "VI",
+      "number": 6
+    },
+    {
+      "id": "7",
+      "name": "VII",
+      "number": 7
+    },
+    {
+      "id": "8",
+      "name": "VIII",
+      "number": 8
+    },
+    {
+      "id": "9",
+      "name": "IX",
+      "number": 9
+    },
+    {
+      "id": "10",
+      "name": "X",
+      "number": 10
+    }
+  ],
+  "courses": [
+    {
+      "id": "mca-sec-a",
+      "name": "MCA Sec-A",
+      "department": "Master of Computer Applications",
+      "section": "A",
+      "capacity": 60
+    },
+    {
+      "id": "mca-sec-b",
+      "name": "MCA Sec-B",
+      "department": "Master of Computer Applications",
+      "section": "B",
+      "capacity": 60
+    },
+    {
+      "id": "btech-cs-a",
+      "name": "B.Tech CS Sec-A",
+      "department": "Computer Science",
+      "section": "A",
+      "capacity": 70
+    },
+    {
+      "id": "btech-cs-b",
+      "name": "B.Tech CS Sec-B",
+      "department": "Computer Science",
+      "section": "B",
+      "capacity": 70
+    },
+    {
+      "id": "btech-it-a",
+      "name": "B.Tech IT Sec-A",
+      "department": "Information Technology",
+      "section": "A",
+      "capacity": 65
+    },
+    {
+      "id": "btech-it-b",
+      "name": "B.Tech IT Sec-B",
+      "department": "Information Technology",
+      "section": "B",
+      "capacity": 65
+    }
+  ],
+  "rooms": [
+    {
+      "id": "room-101",
+      "name": "Room-101",
+      "building": "Academic Block A",
+      "floor": 1,
+      "capacity": 80,
+      "type": "Lecture Hall",
+      "facilities": ["Projector", "Whiteboard", "AC"]
+    },
+    {
+      "id": "room-102",
+      "name": "Room-102",
+      "building": "Academic Block A",
+      "floor": 1,
+      "capacity": 75,
+      "type": "Lecture Hall",
+      "facilities": ["Projector", "Whiteboard", "AC"]
+    },
+    {
+      "id": "room-103",
+      "name": "Room-103",
+      "building": "Academic Block A",
+      "floor": 1,
+      "capacity": 70,
+      "type": "Lecture Hall",
+      "facilities": ["Projector", "Whiteboard"]
+    },
+    {
+      "id": "room-107",
+      "name": "Room-107",
+      "building": "Academic Block A",
+      "floor": 1,
+      "capacity": 60,
+      "type": "Classroom",
+      "facilities": ["Projector", "Whiteboard", "AC"]
+    },
+    {
+      "id": "room-108",
+      "name": "Room-108",
+      "building": "Academic Block A",
+      "floor": 1,
+      "capacity": 65,
+      "type": "Classroom",
+      "facilities": ["Projector", "Whiteboard", "AC"]
+    },
+    {
+      "id": "room-201",
+      "name": "Room-201",
+      "building": "Academic Block A",
+      "floor": 2,
+      "capacity": 85,
+      "type": "Lecture Hall",
+      "facilities": ["Projector", "Whiteboard", "AC", "Sound System"]
+    },
+    {
+      "id": "room-202",
+      "name": "Room-202",
+      "building": "Academic Block A",
+      "floor": 2,
+      "capacity": 80,
+      "type": "Lecture Hall",
+      "facilities": ["Projector", "Whiteboard", "AC"]
+    },
+    {
+      "id": "lab-301",
+      "name": "Computer Lab-301",
+      "building": "Academic Block B",
+      "floor": 3,
+      "capacity": 40,
+      "type": "Computer Lab",
+      "facilities": ["40 Computers", "Projector", "AC", "Network"]
+    },
+    {
+      "id": "lab-302",
+      "name": "Computer Lab-302",
+      "building": "Academic Block B",
+      "floor": 3,
+      "capacity": 35,
+      "type": "Computer Lab",
+      "facilities": ["35 Computers", "Projector", "AC", "Network"]
+    },
+    {
+      "id": "auditorium",
+      "name": "Main Auditorium",
+      "building": "Central Block",
+      "floor": 1,
+      "capacity": 300,
+      "type": "Auditorium",
+      "facilities": ["Advanced AV System", "Stage", "AC", "Recording Setup"]
+    }
+  ],
+  "subjects": [
+    {
+      "id": "mth101",
+      "name": "Mathematics I",
+      "code": "MTH101",
+      "department": "Mathematics",
+      "credits": 4,
+      "type": "Core",
+      "semesters": [1, 2]
+    },
+    {
+      "id": "mth201",
+      "name": "Mathematics II",
+      "code": "MTH201",
+      "department": "Mathematics",
+      "credits": 4,
+      "type": "Core",
+      "semesters": [3, 4]
+    },
+    {
+      "id": "phy102",
+      "name": "Physics",
+      "code": "PHY102",
+      "department": "Physics",
+      "credits": 3,
+      "type": "Core",
+      "semesters": [1, 2]
+    },
+    {
+      "id": "che103",
+      "name": "Chemistry",
+      "code": "CHE103",
+      "department": "Chemistry",
+      "credits": 3,
+      "type": "Core",
+      "semesters": [1, 2]
+    },
+    {
+      "id": "bio104",
+      "name": "Biology",
+      "code": "BIO104",
+      "department": "Biology",
+      "credits": 3,
+      "type": "Elective",
+      "semesters": [1, 2]
+    },
+    {
+      "id": "csc105",
+      "name": "Computer Science Fundamentals",
+      "code": "CSC105",
+      "department": "Computer Science",
+      "credits": 4,
+      "type": "Core",
+      "semesters": [1, 2, 3]
+    },
+    {
+      "id": "csc201",
+      "name": "Data Structures",
+      "code": "CSC201",
+      "department": "Computer Science",
+      "credits": 4,
+      "type": "Core",
+      "semesters": [3, 4]
+    },
+    {
+      "id": "csc202",
+      "name": "Algorithms",
+      "code": "CSC202",
+      "department": "Computer Science",
+      "credits": 4,
+      "type": "Core",
+      "semesters": [4, 5]
+    },
+    {
+      "id": "csc301",
+      "name": "Database Management Systems",
+      "code": "CSC301",
+      "department": "Computer Science",
+      "credits": 4,
+      "type": "Core",
+      "semesters": [5, 6]
+    },
+    {
+      "id": "csc302",
+      "name": "Operating Systems",
+      "code": "CSC302",
+      "department": "Computer Science",
+      "credits": 4,
+      "type": "Core",
+      "semesters": [5, 6]
+    },
+    {
+      "id": "csc401",
+      "name": "Software Engineering",
+      "code": "CSC401",
+      "department": "Computer Science",
+      "credits": 4,
+      "type": "Core",
+      "semesters": [7, 8]
+    },
+    {
+      "id": "csc402",
+      "name": "Computer Networks",
+      "code": "CSC402",
+      "department": "Computer Science",
+      "credits": 4,
+      "type": "Core",
+      "semesters": [6, 7]
+    },
+    {
+      "id": "it201",
+      "name": "Web Technologies",
+      "code": "IT201",
+      "department": "Information Technology",
+      "credits": 4,
+      "type": "Core",
+      "semesters": [3, 4, 5]
+    },
+    {
+      "id": "it301",
+      "name": "Mobile Application Development",
+      "code": "IT301",
+      "department": "Information Technology",
+      "credits": 4,
+      "type": "Core",
+      "semesters": [5, 6, 7]
+    },
+    {
+      "id": "it401",
+      "name": "Cloud Computing",
+      "code": "IT401",
+      "department": "Information Technology",
+      "credits": 4,
+      "type": "Elective",
+      "semesters": [7, 8]
+    },
+    {
+      "id": "mca501",
+      "name": "Advanced Java Programming",
+      "code": "MCA501",
+      "department": "Master of Computer Applications",
+      "credits": 4,
+      "type": "Core",
+      "semesters": [5, 6]
+    },
+    {
+      "id": "mca502",
+      "name": "Machine Learning",
+      "code": "MCA502",
+      "department": "Master of Computer Applications",
+      "credits": 4,
+      "type": "Core",
+      "semesters": [6, 7]
+    },
+    {
+      "id": "mca601",
+      "name": "Artificial Intelligence",
+      "code": "MCA601",
+      "department": "Master of Computer Applications",
+      "credits": 4,
+      "type": "Core",
+      "semesters": [6, 7]
+    },
+    {
+      "id": "mca701",
+      "name": "Big Data Analytics",
+      "code": "MCA701",
+      "department": "Master of Computer Applications",
+      "credits": 4,
+      "type": "Elective",
+      "semesters": [7, 8]
+    },
+    {
+      "id": "eng101",
+      "name": "English Communication",
+      "code": "ENG101",
+      "department": "English",
+      "credits": 2,
+      "type": "Core",
+      "semesters": [1, 2]
+    },
+    {
+      "id": "env201",
+      "name": "Environmental Science",
+      "code": "ENV201",
+      "department": "Environmental Science",
+      "credits": 2,
+      "type": "Core",
+      "semesters": [3, 4]
+    }
+  ],
+  "faculties": [
+    {
+      "id": "dr-smith",
+      "name": "Dr. Smith",
+      "designation": "Professor",
+      "department": "Computer Science",
+      "email": "dr.smith@university.edu",
+      "phone": "+1-234-567-8901",
+      "specialization": ["Data Structures", "Algorithms", "Software Engineering"]
+    },
+    {
+      "id": "dr-johnson",
+      "name": "Dr. Johnson",
+      "designation": "Associate Professor",
+      "department": "Mathematics",
+      "email": "dr.johnson@university.edu",
+      "phone": "+1-234-567-8902",
+      "specialization": ["Applied Mathematics", "Statistics", "Calculus"]
+    },
+    {
+      "id": "dr-brown",
+      "name": "Dr. Brown",
+      "designation": "Assistant Professor",
+      "department": "Information Technology",
+      "email": "dr.brown@university.edu",
+      "phone": "+1-234-567-8903",
+      "specialization": ["Web Development", "Mobile Apps", "Cloud Computing"]
+    },
+    {
+      "id": "prof-white",
+      "name": "Prof. White",
+      "designation": "Professor",
+      "department": "Computer Science",
+      "email": "prof.white@university.edu",
+      "phone": "+1-234-567-8904",
+      "specialization": ["Database Systems", "Operating Systems", "Computer Networks"]
+    },
+    {
+      "id": "prof-green",
+      "name": "Prof. Green",
+      "designation": "Associate Professor",
+      "department": "Master of Computer Applications",
+      "email": "prof.green@university.edu",
+      "phone": "+1-234-567-8905",
+      "specialization": ["Machine Learning", "Artificial Intelligence", "Big Data"]
+    },
+    {
+      "id": "dr-wilson",
+      "name": "Dr. Wilson",
+      "designation": "Professor",
+      "department": "Physics",
+      "email": "dr.wilson@university.edu",
+      "phone": "+1-234-567-8906",
+      "specialization": ["Applied Physics", "Electronics", "Quantum Physics"]
+    },
+    {
+      "id": "dr-taylor",
+      "name": "Dr. Taylor",
+      "designation": "Assistant Professor",
+      "department": "Chemistry",
+      "email": "dr.taylor@university.edu",
+      "phone": "+1-234-567-8907",
+      "specialization": ["Organic Chemistry", "Physical Chemistry"]
+    },
+    {
+      "id": "prof-anderson",
+      "name": "Prof. Anderson",
+      "designation": "Associate Professor",
+      "department": "Master of Computer Applications",
+      "email": "prof.anderson@university.edu",
+      "phone": "+1-234-567-8908",
+      "specialization": ["Advanced Java", "Enterprise Applications", "Software Architecture"]
+    },
+    {
+      "id": "dr-davis",
+      "name": "Dr. Davis",
+      "designation": "Assistant Professor",
+      "department": "English",
+      "email": "dr.davis@university.edu",
+      "phone": "+1-234-567-8909",
+      "specialization": ["Technical Communication", "Business English"]
+    },
+    {
+      "id": "prof-martinez",
+      "name": "Prof. Martinez",
+      "designation": "Professor",
+      "department": "Biology",
+      "email": "prof.martinez@university.edu",
+      "phone": "+1-234-567-8910",
+      "specialization": ["Molecular Biology", "Genetics", "Biotechnology"]
+    },
+    {
+      "id": "dr-lee",
+      "name": "Dr. Lee",
+      "designation": "Associate Professor",
+      "department": "Environmental Science",
+      "email": "dr.lee@university.edu",
+      "phone": "+1-234-567-8911",
+      "specialization": ["Environmental Impact Assessment", "Sustainability"]
+    }
+  ],
+  "timeSlots": [
+    "10:00-11:00",
+    "11:00-12:00",
+    "12:00-13:00",
+    "13:00-14:00",
+    "14:00-15:00"
+  ],
+  "days": [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ]
+}
