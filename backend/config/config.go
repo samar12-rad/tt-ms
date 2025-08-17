@@ -27,9 +27,10 @@ func ConnectDB() {
 
 	// Build DSN dynamically using sslMode
 	dsn := fmt.Sprintf(
-		"postgres://%s:%s@%s:%s/%s?sslmode=%s&connect_timeout=10",
-		user, password, host, port, dbname, sslMode,
-	)
+  "host=%s port=%s user=%s password=%s dbname=%s sslmode=require connect_timeout=10",
+  host, port, user, password, dbname,
+)
+
 
 	// Optional: Supabase sometimes needs this tweak
 	if sslMode == "require" {
