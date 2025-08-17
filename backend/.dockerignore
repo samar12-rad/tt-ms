@@ -1,0 +1,21 @@
+# Environment files
+.env
+.env.local
+.env.production
+.env.staging
+
+# Development files
+*.log
+*.tmp
+*.temp
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+
+# Local data
+pgdata/

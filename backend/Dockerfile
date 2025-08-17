@@ -8,6 +8,5 @@ RUN go build -o tms-server .
 FROM debian:bookworm-slim
 WORKDIR /app
 COPY --from=builder /app/tms-server .
-COPY .env .env
 EXPOSE 8080
 CMD ["./tms-server"]
