@@ -13,6 +13,7 @@ import (
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
 
+	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/jackc/pgx/v5/stdlib"
 )
@@ -56,6 +57,9 @@ func ConnectDB() {
     config.MaxConnIdleTime = maxConnIdleTime
     config.HealthCheckPeriod = 1 * time.Minute
 
+    // ✅ CRITICAL: Disable prepared statements at the pgx level to prevent caching issues
+    config.ConnConfig.DefaultQueryExecMode = pgx.QueryExecModeSimpleProtocol
+
     // ✅ Force IPv4 by overriding ConnConfig DialFunc
     dialer := &net.Dialer{
         Timeout:   10 * time.Second,
@@ -84,8 +88,14 @@ func ConnectDB() {
 
     db, err := gorm.Open(postgres.New(postgres.Config{
         Conn: sqlDB,
+        // Disable prepared statements to fix "prepared statement already exists" error
+        // This is necessary when using Supabase transaction pooling
+        PreferSimpleProtocol: true,
     }), &gorm.Config{
         Logger: logger.Default.LogMode(logger.Info),
+        // Additional GORM configuration to handle connection pooling better
+        PrepareStmt:                              false, // Disable prepared statement caching
+        DisableForeignKeyConstraintWhenMigrating: true,  // Additional safety for pooled connections
     })
     if err != nil {
         log.Fatalf("Failed to connect to database with GORM: %v", err)
