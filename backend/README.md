@@ -7,6 +7,8 @@ Timetable management system Backend
 - **Role-based Access Control**: Admin, Faculty, and Student roles
 - **RESTful API**: Clean and consistent API design
 - **Database Migrations**: Automated database schema management
+- **Flexible CORS**: Environment-based CORS configuration for deployment
+- **Health Monitoring**: Connection pool statistics and health checks
 
 ## Build & Run
 - cd into `backend/`
@@ -45,6 +47,16 @@ PG_MIN_CONNS=2               # Minimal persistent connections
 PG_MAX_CONN_LIFETIME=30m     # Shorter rotation
 PG_MAX_CONN_IDLE_TIME=15m    # Quick cleanup
 ```
+
+## CORS Configuration
+
+Configure allowed frontend origins for production deployment:
+```bash
+# Frontend origins that can access this backend
+CORS_ALLOWED_ORIGINS=http://localhost:5173,https://tt-ms.vercel.app
+```
+
+See [docs/CORS_CONFIGURATION.md](docs/CORS_CONFIGURATION.md) for detailed CORS setup guide.
 
 ## API Endpoints Documentation
 
