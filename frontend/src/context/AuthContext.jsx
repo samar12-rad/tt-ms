@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import backendService from "../services/backendservice.js";
 import { useUserRole } from '../context/UserRoleContext';
 import { toast } from 'react-toastify';
+import { buildApiUrl } from '../config/api.js';
 
 const AuthContext = createContext();
 
@@ -34,7 +35,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (username, password) => {
     try {
-      const res = await fetch("http://localhost:8080/api/v1/login", {
+      const res = await fetch(buildApiUrl('/login'), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -65,7 +66,7 @@ export const AuthProvider = ({ children }) => {
 
   const logout = async () => {
     try {
-      const res = await fetch("http://localhost:8080/api/v1/logout", {
+      const res = await fetch(buildApiUrl('/logout'), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

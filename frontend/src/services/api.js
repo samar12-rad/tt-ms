@@ -1,8 +1,8 @@
 import axios from "axios";
+import { API_CONFIG } from "../config/api.js";
 
 const instance = axios.create({
-  baseURL: "http://localhost:8080", // backend API base
-  // baseURL: process.env.Base_URL, // backend API base
+  baseURL: API_CONFIG.BACKEND_URL,
   withCredentials: true,
 });
 
