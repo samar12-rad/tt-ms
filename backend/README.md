@@ -1,6 +1,13 @@
 # TMS-backend
 Timetable management system Backend
 
+## Features
+- **Connection Pooling**: Efficient database connection management using pgxpool
+- **JWT Authentication**: Secure user authentication and authorization
+- **Role-based Access Control**: Admin, Faculty, and Student roles
+- **RESTful API**: Clean and consistent API design
+- **Database Migrations**: Automated database schema management
+
 ## Build & Run
 - cd into `backend/`
 - run `go mod download` first to install go packages
@@ -11,12 +18,44 @@ Timetable management system Backend
 - Copy `.env.example` to `env`: `cp .env.example .env`
 - Inside `.env` add your own postgres DATABASE_URL, Recommeneded to get from [Supabase](https://supabase.com).
 
+## Database Connection Pooling
+
+This application uses **dual-layer connection pooling**:
+1. **Supabase Transaction Pooling** - External pooling managed by Supabase
+2. **Application Connection Pooling** - Internal pooling using pgxpool
+
+See [docs/SUPABASE_POOLING.md](docs/SUPABASE_POOLING.md) for detailed information about the dual-pooling strategy.
+
+### Quick Setup for Supabase
+1. Use the Supabase pooler connection string (port 6543)
+2. Configure smaller local pool since Supabase handles external pooling
+3. Monitor both application and Supabase pool performance
+
+### Environment Variables for Connection Pool
+```bash
+# Supabase Pooler Connection
+PG_HOST=aws-0-us-east-2.pooler.supabase.com
+PG_PORT=6543
+PG_USER=postgres.your_ref_id
+PG_PASSWORD=your_password
+
+# Optimized for Supabase (smaller local pool)
+PG_MAX_CONNS=10              # Reduced for Supabase pooling
+PG_MIN_CONNS=2               # Minimal persistent connections
+PG_MAX_CONN_LIFETIME=30m     # Shorter rotation
+PG_MAX_CONN_IDLE_TIME=15m    # Quick cleanup
+```
+
 ## API Endpoints Documentation
 
 ### Base URL
 `/api/v1`
 
 ---
+
+### System Routes (Public)
+- `GET /health` - Service health check
+- `GET /stats` - Database connection pool statistics
 
 ### Public Routes (No JWT Required)
 - `GET /ping` - Service health check

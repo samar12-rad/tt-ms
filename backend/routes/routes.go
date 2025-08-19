@@ -16,6 +16,10 @@ func RegisterRoutes(r *gin.Engine) {
 	db := config.DB
 	api := r.Group("/api/v1")
 
+	// System/Health routes (public)
+	api.GET("/health", controllers.HealthCheck)
+	api.GET("/stats", controllers.DatabaseStats)
+
 	// Public routes
 	api.GET("/ping", controllers.Ping)
 	api.POST("/login", controllers.Login)
