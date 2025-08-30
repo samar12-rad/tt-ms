@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"net/http"
+	"time"
 	"tms-server/models"
 	"tms-server/utils"
 
@@ -31,14 +32,16 @@ func Login(c *gin.Context) {
 		return
 	}
 
-	c.SetCookie(
-		"auth_token", token,
-		int(utils.TokenExpiry.Seconds()), // expires in 7 days (604800 seconds)
-		"/",
-		"",
-		true,
-		true,
-	)
+	// Set cookie with SameSite=None; Secure for cross-site/mobile compatibility
+	http.SetCookie(c.Writer, &http.Cookie{
+		Name:     "auth_token",
+		Value:    token,
+		Path:     "/",
+		Expires:  time.Now().Add(utils.TokenExpiry),
+		HttpOnly: true,
+		Secure:   true,
+		SameSite: http.SameSiteNoneMode,
+	})
 
 	c.JSON(http.StatusOK, gin.H{
 		"message":  "Login Successful",
@@ -48,15 +51,17 @@ func Login(c *gin.Context) {
 }
 
 func Logout(c *gin.Context) {
-	c.SetCookie(
-		"auth_token",
-		"",
-		-1,
-		"/",
-		"",
-		true,
-		true,
-	)
+	// Clear cookie with matching attributes
+	http.SetCookie(c.Writer, &http.Cookie{
+		Name:     "auth_token",
+		Value:    "",
+		Path:     "/",
+		Expires:  time.Unix(0, 0),
+		MaxAge:   -1,
+		HttpOnly: true,
+		Secure:   true,
+		SameSite: http.SameSiteNoneMode,
+	})
 
 	c.JSON(http.StatusOK, gin.H{"message": "Logout successful"})
 }
