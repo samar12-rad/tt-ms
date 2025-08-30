@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState } from "react";
 import { FaUser, FaCalendarAlt } from "react-icons/fa";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { CiLogin } from "react-icons/ci";
@@ -6,37 +6,42 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { toast } from 'react-toastify';
 import logo from "..//assets/iips.png";
+import LoadingScreen from "../components/LoadingScreen";
 
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
 
   const handleLogin = async (event) => {
     event.preventDefault();
-    
     // Validation
     if (!username.trim()) {
       toast.error("Please enter your username");
       return;
     }
-    
     if (!password.trim()) {
       toast.error("Please enter your password");
       return;
     }
-    
-    await login(username, password);
-    // console.log("Login attempted with:", username, password);
+    setLoading(true);
+    try {
+      // await new Promise((resolve) => setTimeout(resolve, 1000)); // 1 second delay
+      await login(username, password);
+    } finally {
+      setLoading(false);
+    }
   };
 
 
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className="h-screen flex items-center bg-gray-100 max-[680px]:flex-col max-[680px]:gap-4">
+    <div className="h-screen flex items-center bg-gray-100 max-[680px]:flex-col max-[680px]:gap-4 relative">
+      {loading && <LoadingScreen message="Logging you in..." />}
       {/* Left-Section*/}
 <div className="w-1/2 h-full flex flex-col items-center justify-center bg-[linear-gradient(135deg,#1e3a8a,#0f766e)] max-[680px]:w-full max-[680px]:h-1/4 max-[680px]:flex-row">
   <div className="items-center text-center">
